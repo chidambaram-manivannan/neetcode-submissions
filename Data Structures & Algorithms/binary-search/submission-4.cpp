@@ -1,0 +1,22 @@
+class Solution {
+public:
+  int search(vector<int> &nums, int target) {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int l = 0, r = nums.size() - 1;
+    if (nums.empty())
+      return -1;
+
+    while (l <= r) {
+      int mid = (l + r) / 2;
+      if (nums[mid] == target) {
+        return mid;
+      } else if (nums[mid] > target) {
+        r = mid - 1;
+      } else {
+        l = mid + 1;
+      }
+    }
+    return -1;
+  }
+};
